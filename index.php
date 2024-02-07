@@ -1,4 +1,9 @@
 <?php
+$userLength = intval($_GET['generatore']);
+function generatore ($userLength){
+    $myItem = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz,.<>:;-_]{()=/&%$£"!';
+    return substr(str_shuffle($myItem), 0, $userLength);
+}
 
 ?>
 <!DOCTYPE html>
@@ -22,12 +27,17 @@
 
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="inseriscie la lunghezza della password" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input name="generatore" type="text" class="form-control" placeholder="inseriscie la lunghezza della password in numeri..." aria-label="Recipient's username" minlength="1" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Genera</button>
             </div>
 
 
         </form>
+        <p>
+            <?php
+            echo generatore($userLength);
+            ?>
+        </p>
     </div>
 
 </body>
