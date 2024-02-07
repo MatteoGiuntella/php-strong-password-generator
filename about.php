@@ -1,6 +1,5 @@
 <?php
-$userLength = $_GET['generatore'];
-function generatore ($userLength){
+function generatore ($length){
     $myItem = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz,.<>:;-_]{()=/&%$£"!';
-    return substr(str_shuffle($myItem), 0, $userLength);
+    return substr(str_shuffle($myItem), 0, $length);
 }

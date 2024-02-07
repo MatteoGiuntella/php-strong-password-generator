@@ -1,7 +1,11 @@
 <?php
-include __DIR__ .'/about.php';
-
-
+session_start() .
+include __DIR__ . '/about.php';
+if(isset($_POST['generatore'])){
+    $userLength = $_POST['generatore'];
+    $_SESSION['chiave'] = generatore($userLength);
+    header('Location: session.php');
+}
 
 ?>
 <!DOCTYPE html>
@@ -21,21 +25,17 @@ include __DIR__ .'/about.php';
         <h1>
             Generatore di password
         </h1>
-        <form action="" method="GET">
+        <form action="" method="POST">
 
 
             <div class="input-group mb-3">
                 <input name="generatore" type="number" class="form-control" placeholder="inseriscie la lunghezza della password in numeri..." aria-label="Recipient's username" minlength="1" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Genera</button>
             </div>
-
+            
 
         </form>
-        <p>
-            <?php
-            echo generatore($userLength);
-            ?>
-        </p>
+
     </div>
 
 </body>
